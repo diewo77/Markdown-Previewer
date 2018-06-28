@@ -1,18 +1,12 @@
 import React, {Component} from 'react'
+import updatePreview from '../actions/updatePreview'
+import {connect} from 'react-redux'
+
 
 class Editor extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      text: 'toto'
-    }
-    this.textChange = this.textChange.bind(this)
-  }
 
   textChange(e) {
-    this.setState({
-      text: e.target.value
-    })
+
   }
 
   render () {
@@ -24,5 +18,18 @@ class Editor extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+    return {
+        text: state.text
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        updatePreview: (text) => dispatch(updatePreview(text)),
+    }
+}
+
+connect(mapStateToProps, mapDispatchToProps)(Editor);
 
 export default Editor
