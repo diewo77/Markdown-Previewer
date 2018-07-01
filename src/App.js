@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Preview from './components/Preview'
 import logo from './logo.svg';
 import './App.css';
 import Editor from "./components/Editor";
@@ -12,7 +11,6 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Editor/>
-          <Preview/>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo"/>
             <h1 className="App-title">Welcome to this</h1>

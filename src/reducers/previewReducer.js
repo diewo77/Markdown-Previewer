@@ -1,4 +1,5 @@
 import {UPDATE_PREVIEW} from '../actions/types'
+
 const preview = (state = '', action) => {
     switch (action.type) {
         case UPDATE_PREVIEW:
