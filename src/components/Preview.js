@@ -1,21 +1,26 @@
 import React, {Component} from 'react'
 import {connect} from "react-redux";
+import previewReducer from "../reducers/previewReducer";
+import ReactMarkdown from 'react-markdown'
 
 class Preview extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello</h1>
-                <p id="here">{console.log(this.props)}</p>
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div id={'preview'}>
+        <ReactMarkdown source={this.props.text['previewReducer']} />
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        text: state.preload
-    }
+  return {
+    text: state
+  }
 }
 
 export default connect(mapStateToProps)(Preview);
